@@ -30,11 +30,9 @@ int main() {
     r1.area=calculate_area(r1);
     r2.area=calculate_area(r2);
     r3.area=calculate_area(r3);
-     printf("\n");
      printf("Area of %s = %.2f\n",r1.name,r1.area);
      printf("Area of %s = %.2f\n",r2.name,r2.area);
      printf("Area of %s = %.2f\n",r3.name,r3.area);
-     printf("\n");
 
     /* Determine and display the largest area */
    compare_areas(r1,r2,r3);
@@ -45,15 +43,13 @@ Rectangle input() {
     Rectangle rect;
     printf("Enter name: Enter length: Enter width: \n");
     /* Read rectangle details */
-    scanf("%s",rect.name);
-    scanf("%f",&rect.length);
-    scanf("%f",&rect.width);
+    scanf("%s%f%f",rect.name,&rect.length,&rect.width);
     return rect;
 }
 
 float calculate_area(Rectangle rect) {
     /* Return area calculation */
-    return (rect.length*rect.width);
+    return rect.length*rect.width;
 }
 
 void compare_areas(Rectangle r1, Rectangle r2, Rectangle r3) {
@@ -66,13 +62,12 @@ void compare_areas(Rectangle r1, Rectangle r2, Rectangle r3) {
     {
        printf("%s has the largest area.", r2.name);
     }
-    else if (r1.area==r2.area||r1.area==r3.area||r2.area==r3.area)
+    else if (r3.area>r2.area&&r3.area>r1.area)
     {
-         printf("Two ar more rectangles have equal largest area.\n");
+       printf("%s has the largest area.", r3.name);
     }   
     else
     {
-     printf("%s has the largest area.", r3.name);   
-    }
+     printf("Two or more rectangles have equal largest area.\n");    }
     
 }
