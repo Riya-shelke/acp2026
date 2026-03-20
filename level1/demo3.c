@@ -1,4 +1,4 @@
-vyfyt#include<stdio.h>
+#include<stdio.h>
 
 typedef struct {
     float length;
